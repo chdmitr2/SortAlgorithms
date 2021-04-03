@@ -63,5 +63,56 @@ namespace Algorithm.Tests
             }
         }
 
+        [TestMethod()]
+        public void InsertSortTest()
+        {
+            // arrange
+            var insert = new InsertionSort<int>();
+            insert.Items.AddRange(Items);
+
+            // act
+            insert.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], insert.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void ShellSortTest()
+        {
+            // arrange
+            var shell = new ShellSort<int>();
+            shell.Items.AddRange(Items);
+
+            // act
+            shell.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], shell.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void BaseSortTest()
+        {
+            // arrange
+            var bases = new AlgorithmBase<int>();
+            bases.Items.AddRange(Items);
+
+            // act
+            bases.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], bases.Items[i]);
+            }
+        }
+
     }
 }

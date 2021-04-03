@@ -32,27 +32,26 @@ namespace VerticalProgressBar
 		private int m_Minimum = 0;
 		private int m_Maximum = 100;
 		private int m_Step = 10;
-		
+
 		private Styles m_Style = Styles.Classic; //Bar Style
 		private BorderStyles m_BorderStyle = BorderStyles.Classic;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private Color m_Color = Color.Blue; //Bar color
+		private Color m_Color = Color.Blue; //Bar color
 
 		public VerticalProgressBar()
 		{
 			InitializeComponent();
 
-            // ***** avoid flickering
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            this.SetStyle(ControlStyles.UserPaint, true);
-            this.SetStyle(ControlStyles.DoubleBuffer, true);
+			// ***** avoid flickering
+			this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+			this.SetStyle(ControlStyles.UserPaint, true);
+			this.SetStyle(ControlStyles.DoubleBuffer, true);
 
 			this.Name = "VerticalProgressBar";
 			this.Size = new Size(10, 120);
 		}
 
-        [Description( "VerticalProgressBar Maximum Value")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Maximum Value")]
+		[Category("VerticalProgressBar")]
 		[RefreshProperties(RefreshProperties.All)]
 		public int Maximum
 		{
@@ -63,15 +62,15 @@ namespace VerticalProgressBar
 			set
 			{
 				m_Maximum = value;
-				if(m_Maximum < m_Minimum)
-					m_Minimum=m_Maximum;
-				if(m_Maximum < m_Value)
+				if (m_Maximum < m_Minimum)
+					m_Minimum = m_Maximum;
+				if (m_Maximum < m_Value)
 					m_Value = m_Maximum;
 				Invalidate();
 			}
 		}
-		[Description( "VerticalProgressBar Minimum Value")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Minimum Value")]
+		[Category("VerticalProgressBar")]
 		[RefreshProperties(RefreshProperties.All)]
 		public int Minimum
 		{
@@ -82,15 +81,15 @@ namespace VerticalProgressBar
 			set
 			{
 				m_Minimum = value;
-				if(m_Minimum > m_Maximum)
+				if (m_Minimum > m_Maximum)
 					m_Maximum = m_Minimum;
-				if(m_Minimum > m_Value)
+				if (m_Minimum > m_Value)
 					m_Value = m_Minimum;
 				Invalidate();
 			}
 		}
-		[Description( "VerticalProgressBar Step")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Step")]
+		[Category("VerticalProgressBar")]
 		[RefreshProperties(RefreshProperties.All)]
 		public int Step
 		{
@@ -103,8 +102,8 @@ namespace VerticalProgressBar
 				m_Step = value;
 			}
 		}
-		[Description( "VerticalProgressBar Current Value")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Current Value")]
+		[Category("VerticalProgressBar")]
 		public int Value
 		{
 			get
@@ -114,15 +113,15 @@ namespace VerticalProgressBar
 			set
 			{
 				m_Value = value;
-				if(m_Value > m_Maximum)
+				if (m_Value > m_Maximum)
 					m_Value = m_Maximum;
-				if(m_Value < m_Minimum)
+				if (m_Value < m_Minimum)
 					m_Value = m_Minimum;
 				Invalidate();
 			}
 		}
-		[Description( "VerticalProgressBar Color")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Color")]
+		[Category("VerticalProgressBar")]
 		[RefreshProperties(RefreshProperties.All)]
 		public System.Drawing.Color Color
 		{
@@ -136,8 +135,8 @@ namespace VerticalProgressBar
 				Invalidate();
 			}
 		}
-		[Description( "VerticalProgressBar Border Style")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Border Style")]
+		[Category("VerticalProgressBar")]
 		public new BorderStyles BorderStyle
 		{
 			get
@@ -150,8 +149,8 @@ namespace VerticalProgressBar
 				Invalidate();
 			}
 		}
-		[Description( "VerticalProgressBar Style")]
-		[Category( "VerticalProgressBar" )]
+		[Description("VerticalProgressBar Style")]
+		[Category("VerticalProgressBar")]
 		public Styles Style
 		{
 			get
@@ -164,29 +163,29 @@ namespace VerticalProgressBar
 				Invalidate();
 			}
 		}
-		
+
 		public void PerformStep()
 		{
-			m_Value+=m_Step;
+			m_Value += m_Step;
 
-			if(m_Value > m_Maximum)
+			if (m_Value > m_Maximum)
 				m_Value = m_Maximum;
-			if(m_Value < m_Minimum)
+			if (m_Value < m_Minimum)
 				m_Value = m_Minimum;
-			
+
 			Invalidate();
 			return;
 		}
 
 		public void Increment(int value)
 		{
-			m_Value+=value;
+			m_Value += value;
 
-			if(m_Value > m_Maximum)
+			if (m_Value > m_Maximum)
 				m_Value = m_Maximum;
-			if(m_Value < m_Minimum)
+			if (m_Value < m_Minimum)
 				m_Value = m_Minimum;
-			
+
 			Invalidate();
 			return;
 		}
@@ -194,30 +193,30 @@ namespace VerticalProgressBar
 
 		private void drawBorder(Graphics dc)
 		{
-			if(m_BorderStyle == BorderStyles.Classic)
+			if (m_BorderStyle == BorderStyles.Classic)
 			{
 				Color darkColor = ControlPaint.Dark(this.BackColor);
 				Color brightColor = ControlPaint.Dark(this.BackColor);
 				Pen p = new Pen(darkColor, 1);
 				dc.DrawLine(p, this.Width, 0, 0, 0);
-				dc.DrawLine(p, 0,0, 0, this.Height);
-				p = new Pen(brightColor,1);
-				dc.DrawLine(p, 0, this.Height, this.Width,this.Height);
-				dc.DrawLine(p, this.Width,this.Height, this.Width,0);
+				dc.DrawLine(p, 0, 0, 0, this.Height);
+				p = new Pen(brightColor, 1);
+				dc.DrawLine(p, 0, this.Height, this.Width, this.Height);
+				dc.DrawLine(p, this.Width, this.Height, this.Width, 0);
 			}
 		}
 
 		private void drawBar(Graphics dc)
 		{
-			if(m_Minimum == m_Maximum || (m_Value - m_Minimum) == 0)
+			if (m_Minimum == m_Maximum || (m_Value - m_Minimum) == 0)
 				return;
 
-			int width;		// the bar width
-			int height;		// the bar height
-			int x;				// the bottom-left x pos of the bar
-			int y;				// the bottom-left y pos of the bar
+			int width;      // the bar width
+			int height;     // the bar height
+			int x;              // the bottom-left x pos of the bar
+			int y;              // the bottom-left y pos of the bar
 
-			if(m_BorderStyle == BorderStyles.None)
+			if (m_BorderStyle == BorderStyles.None)
 			{
 				width = this.Width;
 				x = 0;
@@ -225,40 +224,40 @@ namespace VerticalProgressBar
 			}
 			else
 			{
-				if(this.Width > 4 || this.Height > 2)
+				if (this.Width > 4 || this.Height > 2)
 				{
 					width = this.Width - 4;
 					x = 2;
-					y = this.Height - 1; 
+					y = this.Height - 1;
 				}
 				else
 					return; // Cannot draw
 			}
 
-            height = (m_Value - m_Minimum) * this.Height / (m_Maximum - m_Minimum); // the bar height
+			height = (m_Value - m_Minimum) * this.Height / (m_Maximum - m_Minimum); // the bar height
 
-			if(m_Style == Styles.Solid)
+			if (m_Style == Styles.Solid)
 			{
 				drawSolidBar(dc, x, y, width, height);
 			}
-			if(m_Style == Styles.Classic)
+			if (m_Style == Styles.Classic)
 			{
 				drawClassicBar(dc, x, y, width, height);
 			}
 		}
 		private void drawSolidBar(Graphics dc, int x, int y, int width, int height)
 		{
-			dc.FillRectangle(new SolidBrush(m_Color), x, y-height, width, height);
+			dc.FillRectangle(new SolidBrush(m_Color), x, y - height, width, height);
 		}
 		private void drawClassicBar(Graphics dc, int x, int y, int width, int height)
 		{
-			int valuepos_y = y - height;			// The pos y of value
+			int valuepos_y = y - height;            // The pos y of value
 
 			int blockheight = width * 3 / 4;        // The height of the block
 
-            if (blockheight <= -1) return; // make sure blockheight is larger than -1 in order not to have the infinite loop.
-			
-			for(int currentpos = y; currentpos > valuepos_y; currentpos -= blockheight+1)
+			if (blockheight <= -1) return; // make sure blockheight is larger than -1 in order not to have the infinite loop.
+
+			for (int currentpos = y; currentpos > valuepos_y; currentpos -= blockheight + 1)
 			{
 				dc.FillRectangle(new SolidBrush(m_Color), x, currentpos - blockheight, width, blockheight);
 			}
@@ -266,10 +265,10 @@ namespace VerticalProgressBar
 		protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
 		{
 			Graphics dc = e.Graphics;
-			
+
 			//Draw Bar
 			drawBar(dc);
-			
+
 			//Draw Border
 			drawBorder(dc);
 
@@ -278,23 +277,23 @@ namespace VerticalProgressBar
 
 		protected override void OnSizeChanged(EventArgs e)
 		{
-			base.OnSizeChanged (e);
+			base.OnSizeChanged(e);
 			Invalidate();
 		}
 
 		/// <summary> 
 		/// Clean up any resources being used.
 		/// </summary>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if( disposing )
+			if (disposing)
 			{
-				if(components != null)
+				if (components != null)
 				{
 					components.Dispose();
 				}
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 		#region Component Designer generated code
 		/// <summary> 
@@ -303,12 +302,12 @@ namespace VerticalProgressBar
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // VerticalProgressBar
             // 
             this.Name = "VerticalProgressBar";
+            this.Size = new System.Drawing.Size(263, 180);
             this.ResumeLayout(false);
 
 		}

@@ -38,8 +38,15 @@ namespace SortAlgorithms
             this.fillNumbers = new System.Windows.Forms.Button();
             this.fillTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.eventLog1 = new System.Diagnostics.EventLog();
+            this.BubbleSortBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SwapLbl = new System.Windows.Forms.Label();
+            this.CompareLbl = new System.Windows.Forms.Label();
+            this.TimeLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,7 +90,7 @@ namespace SortAlgorithms
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.fillNumbers);
             this.panel2.Controls.Add(this.fillTextBox);
-            this.panel2.Location = new System.Drawing.Point(0, 90);
+            this.panel2.Location = new System.Drawing.Point(0, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(252, 74);
             this.panel2.TabIndex = 4;
@@ -116,16 +123,71 @@ namespace SortAlgorithms
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(258, 0);
+            this.panel3.Location = new System.Drawing.Point(258, 32);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(337, 164);
+            this.panel3.Size = new System.Drawing.Size(337, 135);
             this.panel3.TabIndex = 3;
+            // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
+            // BubbleSortBtn
+            // 
+            this.BubbleSortBtn.Location = new System.Drawing.Point(12, 194);
+            this.BubbleSortBtn.Name = "BubbleSortBtn";
+            this.BubbleSortBtn.Size = new System.Drawing.Size(75, 23);
+            this.BubbleSortBtn.TabIndex = 5;
+            this.BubbleSortBtn.Text = "Bubble Sort";
+            this.BubbleSortBtn.UseVisualStyleBackColor = true;
+            this.BubbleSortBtn.Click += new System.EventHandler(this.BubbleSortBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 236);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = " ";
+            // 
+            // SwapLbl
+            // 
+            this.SwapLbl.AutoSize = true;
+            this.SwapLbl.Location = new System.Drawing.Point(12, 260);
+            this.SwapLbl.Name = "SwapLbl";
+            this.SwapLbl.Size = new System.Drawing.Size(10, 13);
+            this.SwapLbl.TabIndex = 7;
+            this.SwapLbl.Text = " ";
+            // 
+            // CompareLbl
+            // 
+            this.CompareLbl.AutoSize = true;
+            this.CompareLbl.Location = new System.Drawing.Point(12, 282);
+            this.CompareLbl.Name = "CompareLbl";
+            this.CompareLbl.Size = new System.Drawing.Size(10, 13);
+            this.CompareLbl.TabIndex = 8;
+            this.CompareLbl.Text = " ";
+            // 
+            // TimeLbl
+            // 
+            this.TimeLbl.AutoSize = true;
+            this.TimeLbl.Location = new System.Drawing.Point(12, 236);
+            this.TimeLbl.Name = "TimeLbl";
+            this.TimeLbl.Size = new System.Drawing.Size(10, 13);
+            this.TimeLbl.TabIndex = 9;
+            this.TimeLbl.Text = " ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 341);
+            this.Controls.Add(this.TimeLbl);
+            this.Controls.Add(this.CompareLbl);
+            this.Controls.Add(this.SwapLbl);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BubbleSortBtn);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -135,7 +197,9 @@ namespace SortAlgorithms
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -150,6 +214,12 @@ namespace SortAlgorithms
         private System.Windows.Forms.Button fillNumbers;
         private System.Windows.Forms.TextBox fillTextBox;
         private System.Windows.Forms.Panel panel3;
+        private System.Diagnostics.EventLog eventLog1;
+        private System.Windows.Forms.Button BubbleSortBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label CompareLbl;
+        private System.Windows.Forms.Label SwapLbl;
+        private System.Windows.Forms.Label TimeLbl;
     }
 }
 

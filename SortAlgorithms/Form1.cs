@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Algorithm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,6 +45,10 @@ namespace SortAlgorithms
                     items.Add(item);
                 }
             }
+
+            RefreshItems();
+
+            fillTextBox.Text = "";
         }
         private void DrawItems(List<SortedItem> items)
         {
@@ -67,6 +73,86 @@ namespace SortAlgorithms
             DrawItems(items);
         }
 
-       
+        private void AlgorithmSwapEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        {
+            e.Item1.SetColor(Color.Aqua);
+            e.Item2.SetColor(Color.Brown);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+
+            var temp = e.Item1.Number;
+            e.Item1.SetPosition(e.Item2.Number);
+            e.Item2.SetPosition(temp);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+
+            e.Item1.SetColor(Color.Blue);
+            e.Item2.SetColor(Color.Blue);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+        }
+
+        private void AlgorithmCompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        {
+            e.Item1.SetColor(Color.Red);
+            e.Item2.SetColor(Color.Green);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+
+            e.Item1.SetColor(Color.Blue);
+            e.Item2.SetColor(Color.Blue);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+        }
+
+        private void AlgorithmSetEvent(object sender, Tuple<int, SortedItem> e)
+        {
+            e.Item2.SetColor(Color.Red);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+
+            e.Item2.SetPosition(e.Item1);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+
+            e.Item2.SetColor(Color.Blue);
+            panel3.Refresh();
+
+            Thread.Sleep(sleep);
+        }
+
+
+        private void BtnClick(AlgorithmBase<SortedItem> algorithm)
+        {
+            RefreshItems();
+
+            for (int i = 0; i < algorithm.Items.Count; i++)
+            {
+                algorithm.Items[i].SetPosition(i);
+            }
+            panel3.Refresh();
+
+            algorithm.CompareEvent += AlgorithmCompareEvent;
+            algorithm.SwapEvent += AlgorithmSwapEvent;
+            algorithm.SetEvent += AlgorithmSetEvent;
+            var time = algorithm.Sort();
+
+            TimeLbl.Text = "Time: " + time.Seconds;
+            SwapLbl.Text = "Number of Swaps: " + algorithm.SwapCount;
+            CompareLbl.Text = "Number of Compares: " + algorithm.ComparisonCount;
+        }
+
+        private void BubbleSortBtn_Click(object sender, EventArgs e)
+        {
+            var bubble = new BubbleSort<SortedItem>(items);
+            BtnClick(bubble);
+        }
     }
 }

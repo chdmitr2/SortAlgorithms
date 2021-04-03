@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SortAlgorithms
 {
-    public class SortedItem
+    class SortedItem : IComparable
     {
         public VerticalProgressBar.VerticalProgressBar ProgressBar { get; private set; }
         public Label Label { get; private set; }
