@@ -15,7 +15,7 @@ namespace SortAlgorithms
     public partial class Form1 : Form
     {
         private List<SortedItem> items = new List<SortedItem>();
-        private const int sleep = 50;
+        private const int sleep = 10;
         public Form1()
         {
             InitializeComponent();
@@ -153,6 +153,24 @@ namespace SortAlgorithms
         {
             var bubble = new BubbleSort<SortedItem>(items);
             BtnClick(bubble);
+        }
+
+        private void CocktailSortBtn_Click(object sender, EventArgs e)
+        {
+            var cocktail = new CocktailSort<SortedItem>(items);
+            BtnClick(cocktail);
+        }
+
+        private void InsertionSortBtn_Click(object sender, EventArgs e)
+        {
+            var insertion = new InsertionSort<SortedItem>(items);
+            BtnClick(insertion);
+        }
+
+        private void ShellSortBtn_Click(object sender, EventArgs e)
+        {
+            var shell = new ShellSort<SortedItem>(items);
+            BtnClick(shell);
         }
     }
 }
