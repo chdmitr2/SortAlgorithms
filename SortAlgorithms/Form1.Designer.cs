@@ -47,6 +47,8 @@ namespace SortAlgorithms
             this.CocktailSortBtn = new System.Windows.Forms.Button();
             this.InsertionSortBtn = new System.Windows.Forms.Button();
             this.ShellSortBtn = new System.Windows.Forms.Button();
+            this.SelectionSortBtn = new System.Windows.Forms.Button();
+            this.HeapSortBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
@@ -137,7 +139,7 @@ namespace SortAlgorithms
             // 
             // BubbleSortBtn
             // 
-            this.BubbleSortBtn.Location = new System.Drawing.Point(12, 194);
+            this.BubbleSortBtn.Location = new System.Drawing.Point(12, 187);
             this.BubbleSortBtn.Name = "BubbleSortBtn";
             this.BubbleSortBtn.Size = new System.Drawing.Size(75, 23);
             this.BubbleSortBtn.TabIndex = 5;
@@ -148,7 +150,7 @@ namespace SortAlgorithms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 236);
+            this.label2.Location = new System.Drawing.Point(12, 253);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 6;
@@ -157,7 +159,7 @@ namespace SortAlgorithms
             // SwapLbl
             // 
             this.SwapLbl.AutoSize = true;
-            this.SwapLbl.Location = new System.Drawing.Point(12, 260);
+            this.SwapLbl.Location = new System.Drawing.Point(12, 295);
             this.SwapLbl.Name = "SwapLbl";
             this.SwapLbl.Size = new System.Drawing.Size(10, 13);
             this.SwapLbl.TabIndex = 7;
@@ -166,7 +168,7 @@ namespace SortAlgorithms
             // CompareLbl
             // 
             this.CompareLbl.AutoSize = true;
-            this.CompareLbl.Location = new System.Drawing.Point(12, 282);
+            this.CompareLbl.Location = new System.Drawing.Point(12, 312);
             this.CompareLbl.Name = "CompareLbl";
             this.CompareLbl.Size = new System.Drawing.Size(10, 13);
             this.CompareLbl.TabIndex = 8;
@@ -175,7 +177,7 @@ namespace SortAlgorithms
             // TimeLbl
             // 
             this.TimeLbl.AutoSize = true;
-            this.TimeLbl.Location = new System.Drawing.Point(12, 236);
+            this.TimeLbl.Location = new System.Drawing.Point(12, 277);
             this.TimeLbl.Name = "TimeLbl";
             this.TimeLbl.Size = new System.Drawing.Size(10, 13);
             this.TimeLbl.TabIndex = 9;
@@ -183,7 +185,7 @@ namespace SortAlgorithms
             // 
             // CocktailSortBtn
             // 
-            this.CocktailSortBtn.Location = new System.Drawing.Point(93, 194);
+            this.CocktailSortBtn.Location = new System.Drawing.Point(12, 216);
             this.CocktailSortBtn.Name = "CocktailSortBtn";
             this.CocktailSortBtn.Size = new System.Drawing.Size(75, 23);
             this.CocktailSortBtn.TabIndex = 10;
@@ -193,7 +195,7 @@ namespace SortAlgorithms
             // 
             // InsertionSortBtn
             // 
-            this.InsertionSortBtn.Location = new System.Drawing.Point(174, 194);
+            this.InsertionSortBtn.Location = new System.Drawing.Point(93, 187);
             this.InsertionSortBtn.Name = "InsertionSortBtn";
             this.InsertionSortBtn.Size = new System.Drawing.Size(85, 23);
             this.InsertionSortBtn.TabIndex = 11;
@@ -203,7 +205,7 @@ namespace SortAlgorithms
             // 
             // ShellSortBtn
             // 
-            this.ShellSortBtn.Location = new System.Drawing.Point(266, 194);
+            this.ShellSortBtn.Location = new System.Drawing.Point(184, 216);
             this.ShellSortBtn.Name = "ShellSortBtn";
             this.ShellSortBtn.Size = new System.Drawing.Size(75, 23);
             this.ShellSortBtn.TabIndex = 12;
@@ -211,11 +213,33 @@ namespace SortAlgorithms
             this.ShellSortBtn.UseVisualStyleBackColor = true;
             this.ShellSortBtn.Click += new System.EventHandler(this.ShellSortBtn_Click);
             // 
+            // SelectionSortBtn
+            // 
+            this.SelectionSortBtn.Location = new System.Drawing.Point(93, 216);
+            this.SelectionSortBtn.Name = "SelectionSortBtn";
+            this.SelectionSortBtn.Size = new System.Drawing.Size(85, 23);
+            this.SelectionSortBtn.TabIndex = 13;
+            this.SelectionSortBtn.Text = "Selection Sort";
+            this.SelectionSortBtn.UseVisualStyleBackColor = true;
+            this.SelectionSortBtn.Click += new System.EventHandler(this.SelectionSortBtn_Click);
+            // 
+            // HeapSortBtn
+            // 
+            this.HeapSortBtn.Location = new System.Drawing.Point(184, 187);
+            this.HeapSortBtn.Name = "HeapSortBtn";
+            this.HeapSortBtn.Size = new System.Drawing.Size(75, 23);
+            this.HeapSortBtn.TabIndex = 14;
+            this.HeapSortBtn.Text = "Heap Sort";
+            this.HeapSortBtn.UseVisualStyleBackColor = true;
+            this.HeapSortBtn.Click += new System.EventHandler(this.HeapSortBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 341);
+            this.ClientSize = new System.Drawing.Size(607, 354);
+            this.Controls.Add(this.HeapSortBtn);
+            this.Controls.Add(this.SelectionSortBtn);
             this.Controls.Add(this.ShellSortBtn);
             this.Controls.Add(this.InsertionSortBtn);
             this.Controls.Add(this.CocktailSortBtn);
@@ -259,6 +283,8 @@ namespace SortAlgorithms
         private System.Windows.Forms.Button CocktailSortBtn;
         private System.Windows.Forms.Button InsertionSortBtn;
         private System.Windows.Forms.Button ShellSortBtn;
+        private System.Windows.Forms.Button SelectionSortBtn;
+        private System.Windows.Forms.Button HeapSortBtn;
     }
 }
 

@@ -147,5 +147,22 @@ namespace Algorithm.Tests
             }
         }
 
+        [TestMethod()]
+        public void SelectionSortTest()
+        {
+            // arrange
+            var selection = new SelectionSort<int>();
+            selection.Items.AddRange(Items);
+
+            // act
+            selection.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], selection.Items[i]);
+            }
+        }
+
     }
 }

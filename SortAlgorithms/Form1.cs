@@ -1,4 +1,5 @@
 ﻿using Algorithm;
+using Algorithm_DataStructures;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -172,5 +173,21 @@ namespace SortAlgorithms
             var shell = new ShellSort<SortedItem>(items);
             BtnClick(shell);
         }
+
+        private void SelectionSortBtn_Click(object sender, EventArgs e)
+        {
+            var selection = new SelectionSort<SortedItem>(items);
+            BtnClick(selection);
+        }
+
+        private void HeapSortBtn_Click(object sender, EventArgs e)
+        {
+            var heap = new Heap<SortedItem>(items);
+            BtnClick(heap);
+        }
+
+        
+
+       
     }
 }
