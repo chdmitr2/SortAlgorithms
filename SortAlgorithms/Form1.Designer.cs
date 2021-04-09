@@ -49,6 +49,11 @@ namespace SortAlgorithms
             this.ShellSortBtn = new System.Windows.Forms.Button();
             this.SelectionSortBtn = new System.Windows.Forms.Button();
             this.HeapSortBtn = new System.Windows.Forms.Button();
+            this.GnomeSortBtn = new System.Windows.Forms.Button();
+            this.TreeSortBtn = new System.Windows.Forms.Button();
+            this.LsdRadixSortBtn = new System.Windows.Forms.Button();
+            this.MsdRadixSortBtn = new System.Windows.Forms.Button();
+            this.MergeSortBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
@@ -130,7 +135,7 @@ namespace SortAlgorithms
             // 
             this.panel3.Location = new System.Drawing.Point(258, 32);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(337, 135);
+            this.panel3.Size = new System.Drawing.Size(532, 135);
             this.panel3.TabIndex = 3;
             // 
             // eventLog1
@@ -195,7 +200,7 @@ namespace SortAlgorithms
             // 
             // InsertionSortBtn
             // 
-            this.InsertionSortBtn.Location = new System.Drawing.Point(93, 187);
+            this.InsertionSortBtn.Location = new System.Drawing.Point(108, 187);
             this.InsertionSortBtn.Name = "InsertionSortBtn";
             this.InsertionSortBtn.Size = new System.Drawing.Size(85, 23);
             this.InsertionSortBtn.TabIndex = 11;
@@ -205,7 +210,7 @@ namespace SortAlgorithms
             // 
             // ShellSortBtn
             // 
-            this.ShellSortBtn.Location = new System.Drawing.Point(184, 216);
+            this.ShellSortBtn.Location = new System.Drawing.Point(213, 216);
             this.ShellSortBtn.Name = "ShellSortBtn";
             this.ShellSortBtn.Size = new System.Drawing.Size(75, 23);
             this.ShellSortBtn.TabIndex = 12;
@@ -215,7 +220,7 @@ namespace SortAlgorithms
             // 
             // SelectionSortBtn
             // 
-            this.SelectionSortBtn.Location = new System.Drawing.Point(93, 216);
+            this.SelectionSortBtn.Location = new System.Drawing.Point(108, 216);
             this.SelectionSortBtn.Name = "SelectionSortBtn";
             this.SelectionSortBtn.Size = new System.Drawing.Size(85, 23);
             this.SelectionSortBtn.TabIndex = 13;
@@ -225,7 +230,7 @@ namespace SortAlgorithms
             // 
             // HeapSortBtn
             // 
-            this.HeapSortBtn.Location = new System.Drawing.Point(184, 187);
+            this.HeapSortBtn.Location = new System.Drawing.Point(307, 187);
             this.HeapSortBtn.Name = "HeapSortBtn";
             this.HeapSortBtn.Size = new System.Drawing.Size(75, 23);
             this.HeapSortBtn.TabIndex = 14;
@@ -233,11 +238,66 @@ namespace SortAlgorithms
             this.HeapSortBtn.UseVisualStyleBackColor = true;
             this.HeapSortBtn.Click += new System.EventHandler(this.HeapSortBtn_Click);
             // 
+            // GnomeSortBtn
+            // 
+            this.GnomeSortBtn.Location = new System.Drawing.Point(213, 187);
+            this.GnomeSortBtn.Name = "GnomeSortBtn";
+            this.GnomeSortBtn.Size = new System.Drawing.Size(75, 23);
+            this.GnomeSortBtn.TabIndex = 15;
+            this.GnomeSortBtn.Text = "Gnome Sort";
+            this.GnomeSortBtn.UseVisualStyleBackColor = true;
+            this.GnomeSortBtn.Click += new System.EventHandler(this.GnomeSortBtn_Click);
+            // 
+            // TreeSortBtn
+            // 
+            this.TreeSortBtn.Location = new System.Drawing.Point(308, 216);
+            this.TreeSortBtn.Name = "TreeSortBtn";
+            this.TreeSortBtn.Size = new System.Drawing.Size(75, 23);
+            this.TreeSortBtn.TabIndex = 16;
+            this.TreeSortBtn.Text = "Tree Sort";
+            this.TreeSortBtn.UseVisualStyleBackColor = true;
+            this.TreeSortBtn.Click += new System.EventHandler(this.TreeSortBtn_Click);
+            // 
+            // LsdRadixSortBtn
+            // 
+            this.LsdRadixSortBtn.Location = new System.Drawing.Point(404, 187);
+            this.LsdRadixSortBtn.Name = "LsdRadixSortBtn";
+            this.LsdRadixSortBtn.Size = new System.Drawing.Size(90, 23);
+            this.LsdRadixSortBtn.TabIndex = 17;
+            this.LsdRadixSortBtn.Text = "Lsd Radix Sort";
+            this.LsdRadixSortBtn.UseVisualStyleBackColor = true;
+            this.LsdRadixSortBtn.Click += new System.EventHandler(this.LsdRadixSortBtn_Click);
+            // 
+            // MsdRadixSortBtn
+            // 
+            this.MsdRadixSortBtn.Location = new System.Drawing.Point(404, 216);
+            this.MsdRadixSortBtn.Name = "MsdRadixSortBtn";
+            this.MsdRadixSortBtn.Size = new System.Drawing.Size(90, 23);
+            this.MsdRadixSortBtn.TabIndex = 18;
+            this.MsdRadixSortBtn.Text = "Msd Radix Sort";
+            this.MsdRadixSortBtn.UseVisualStyleBackColor = true;
+            this.MsdRadixSortBtn.Click += new System.EventHandler(this.MsdRadixSortBtn_Click);
+            // 
+            // MergeSortBtn
+            // 
+            this.MergeSortBtn.Location = new System.Drawing.Point(516, 187);
+            this.MergeSortBtn.Name = "MergeSortBtn";
+            this.MergeSortBtn.Size = new System.Drawing.Size(75, 23);
+            this.MergeSortBtn.TabIndex = 19;
+            this.MergeSortBtn.Text = "Merge Sort";
+            this.MergeSortBtn.UseVisualStyleBackColor = true;
+            this.MergeSortBtn.Click += new System.EventHandler(this.MergeSortBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 354);
+            this.ClientSize = new System.Drawing.Size(802, 354);
+            this.Controls.Add(this.MergeSortBtn);
+            this.Controls.Add(this.MsdRadixSortBtn);
+            this.Controls.Add(this.LsdRadixSortBtn);
+            this.Controls.Add(this.TreeSortBtn);
+            this.Controls.Add(this.GnomeSortBtn);
             this.Controls.Add(this.HeapSortBtn);
             this.Controls.Add(this.SelectionSortBtn);
             this.Controls.Add(this.ShellSortBtn);
@@ -285,6 +345,11 @@ namespace SortAlgorithms
         private System.Windows.Forms.Button ShellSortBtn;
         private System.Windows.Forms.Button SelectionSortBtn;
         private System.Windows.Forms.Button HeapSortBtn;
+        private System.Windows.Forms.Button GnomeSortBtn;
+        private System.Windows.Forms.Button TreeSortBtn;
+        private System.Windows.Forms.Button LsdRadixSortBtn;
+        private System.Windows.Forms.Button MsdRadixSortBtn;
+        private System.Windows.Forms.Button MergeSortBtn;
     }
 }
 

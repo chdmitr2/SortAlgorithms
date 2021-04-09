@@ -164,5 +164,73 @@ namespace Algorithm.Tests
             }
         }
 
+        [TestMethod()]
+        public void GnomeSortTest()
+        {
+            // arrange
+            var gnome = new GnomeSort<int>();
+            gnome.Items.AddRange(Items);
+
+            // act
+            gnome.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], gnome.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void LsdRedixSortTest()
+        {
+            // arrange
+            var lsdRedix = new LsdRadixSort<int>();
+            lsdRedix.Items.AddRange(Items);
+
+            // act
+            lsdRedix.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], lsdRedix.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void MsdRedixSortTest()
+        {
+            // arrange
+            var msdRedix = new MsdRadixSort<int>();
+            msdRedix.Items.AddRange(Items);
+
+            // act
+            msdRedix.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], msdRedix.Items[i]);
+            }
+        }
+
+        [TestMethod()]
+        public void MergeSortTest()
+        {
+            // arrange
+            var merge = new MergeSort<int>();
+            merge.Items.AddRange(Items);
+
+            // act
+            merge.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], merge.Items[i]);
+            }
+        }
+
     }
 }
