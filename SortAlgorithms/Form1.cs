@@ -16,7 +16,7 @@ namespace SortAlgorithms
     public partial class Form1 : Form
     {
         private List<SortedItem> items = new List<SortedItem>();
-        private const int sleep = 1000;
+        private const int sleep = 10;
         public Form1()
         {
             InitializeComponent();
@@ -214,6 +214,12 @@ namespace SortAlgorithms
         {
             var merge = new MergeSort<SortedItem>(items);
             BtnClick(merge);
+        }
+
+        private void QuickSortBtn_Click(object sender, EventArgs e)
+        {
+            var quick = new QuickSort<SortedItem>(items);
+            BtnClick(quick);
         }
     }
 }
